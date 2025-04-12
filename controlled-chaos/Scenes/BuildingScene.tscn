@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://dusnfv73fd8es"]
+
+[ext_resource type="Texture2D" uid="uid://bsiwlu6f7ykp5" path="res://icon.svg" id="1_0r3lv"]
+[ext_resource type="PackedScene" uid="uid://by8mp7qtchvhp" path="res://Scenes/player.tscn" id="1_myu66"]
+[ext_resource type="Script" uid="uid://6cjosbx551xt" path="res://Scripts/camera_player.gd" id="2_126vu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0r3lv"]
+size = Vector2(1137, 20)
+
+[node name="BuildingScene" type="Node2D"]
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms"]
+position = Vector2(576, 590)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(6.5, 0)
+shape = SubResource("RectangleShape2D_0r3lv")
+debug_color = Color(0.584314, 0.380392, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/StaticBody2D"]
+position = Vector2(7, 0)
+scale = Vector2(8.92, 0.159998)
+texture = ExtResource("1_0r3lv")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Platforms"]
+position = Vector2(777, 356)
+scale = Vector2(0.320002, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D2"]
+position = Vector2(6.5, 0)
+shape = SubResource("RectangleShape2D_0r3lv")
+debug_color = Color(0.584314, 0.380392, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/StaticBody2D2"]
+position = Vector2(7, 0)
+scale = Vector2(8.92, 0.159998)
+texture = ExtResource("1_0r3lv")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Platforms"]
+position = Vector2(321, 226)
+scale = Vector2(0.320002, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D3"]
+position = Vector2(6.5, 0)
+shape = SubResource("RectangleShape2D_0r3lv")
+debug_color = Color(0.584314, 0.380392, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/StaticBody2D3"]
+position = Vector2(7, 0)
+scale = Vector2(8.92, 0.159998)
+texture = ExtResource("1_0r3lv")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Platforms"]
+position = Vector2(783, 67)
+scale = Vector2(0.320002, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D4"]
+position = Vector2(6.5, 0)
+shape = SubResource("RectangleShape2D_0r3lv")
+debug_color = Color(0.584314, 0.380392, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/StaticBody2D4"]
+position = Vector2(7, 0)
+scale = Vector2(8.92, 0.159998)
+texture = ExtResource("1_0r3lv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(580, 323)
+script = ExtResource("2_126vu")
+player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("1_myu66")]
+position = Vector2(470, 491)
+scale = Vector2(1, 1.00958)
