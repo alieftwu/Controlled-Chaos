@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnx6qgpgmgo2n"]
+
+[ext_resource type="Script" uid="uid://u8s8bwpehdcn" path="res://Scripts/falling_debris.gd" id="1_jel3x"]
+[ext_resource type="Texture2D" uid="uid://bsiwlu6f7ykp5" path="res://icon.svg" id="2_8aiy3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0udt"]
+size = Vector2(121, 701)
+
+[node name="FallingDebris" type="Node2D"]
+script = ExtResource("1_jel3x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.99984, 65.0002)
+rotation = 3.14159
+texture = ExtResource("2_8aiy3")
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-3.99984, 65.0002)
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(2.99984, 62.9998, -58.0002, 60.9998, -62.0002, -56.0002, 58.9998, -58.0002, 60.9998, 57.9998)
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+position = Vector2(-3.99984, 65.0002)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+position = Vector2(-0.5, 289.5)
+shape = SubResource("RectangleShape2D_n0udt")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="PlayerDetect" to="." method="_on_player_detect_area_entered"]

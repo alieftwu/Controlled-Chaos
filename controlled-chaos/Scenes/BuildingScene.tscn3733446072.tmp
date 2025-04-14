@@ -146,20 +146,5 @@ player = NodePath("../Player")
 position = Vector2(470, 491)
 scale = Vector2(0.722657, 0.731714)
 
-[node name="Node" type="Node" parent="."]
-
-[node name="FallingDebris" parent="Node" instance=ExtResource("4_63p1o")]
-position = Vector2(220, -112)
-scale = Vector2(0.479999, 0.479999)
-
-[node name="FallingDebris2" parent="Node" instance=ExtResource("4_63p1o")]
-position = Vector2(778, -254)
-scale = Vector2(0.479999, 0.479999)
-
-[node name="FallingDebris3" parent="Node" instance=ExtResource("4_63p1o")]
-position = Vector2(778, -552)
-scale = Vector2(0.479999, 0.479999)
-
-[node name="FallingDebris4" parent="Node" instance=ExtResource("4_63p1o")]
-position = Vector2(459, -759)
-scale = Vector2(0.479999, 0.479999)
+[node name="FallingDebris" parent="." instance=ExtResource("4_63p1o")]
+position = Vector2(220, -63)
