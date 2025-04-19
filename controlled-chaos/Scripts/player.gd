@@ -4,8 +4,8 @@ class_name Player
 const speed = 550
 const jump_power = -1500
 
-const acc = 30
-const friction = 15
+const acc = 50
+const friction = 70
 
 const gravity = 120
 

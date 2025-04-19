@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnx6qgpgmgo2n"]
 
 [ext_resource type="Script" uid="uid://u8s8bwpehdcn" path="res://Scripts/falling_debris.gd" id="1_jel3x"]
-[ext_resource type="Texture2D" uid="uid://bsiwlu6f7ykp5" path="res://icon.svg" id="2_8aiy3"]
+[ext_resource type="Texture2D" uid="uid://djsl01mx5amsl" path="res://Assets/rock.png" id="2_jel3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0udt"]
 size = Vector2(121, 701)
@@ -12,7 +12,7 @@ script = ExtResource("1_jel3x")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-3.99984, 65.0002)
 rotation = 3.14159
-texture = ExtResource("2_8aiy3")
+texture = ExtResource("2_jel3x")
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(-3.99984, 65.0002)

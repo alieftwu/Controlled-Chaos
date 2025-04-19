@@ -1,6 +1,10 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://y1pbjbhrhbp6"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://y1pbjbhrhbp6"]
 
 [ext_resource type="Texture2D" uid="uid://byd1omu11p1cg" path="res://Assets/Platforms-Sheet.png" id="1_cb7i3"]
+[ext_resource type="Texture2D" uid="uid://blbr3q5e36miv" path="res://Assets/grass-sheet.png" id="2_kgm6y"]
+[ext_resource type="Texture2D" uid="uid://c1fo0ccc01x1w" path="res://Assets/dirt sheet.png" id="3_x8ulu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kgm6y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kgm6y"]
 texture = ExtResource("1_cb7i3")
@@ -12,7 +16,29 @@ texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -10.4318, 7.19435, -10.6117, 9.53251, -8.99294, 10.2519, 5.57562, 7.73392, 8.2735, -16, 8.81308)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x8ulu"]
+texture = ExtResource("2_kgm6y")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.35265, -11.1512, 16, -10.6117, 16, 8.81308, -8.81308, 8.81308)
+1:0/next_alternative_id = 5
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -10.6117, 16, -10.6117, 16, 8.81308, -16, 8.99294)
+1:0/4 = 4
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -10.6117, 9.89223, -10.7915, 10.0721, 9.1728, -16, 8.99294)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yhqfc"]
+texture = ExtResource("3_x8ulu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_kgm6y")
 sources/0 = SubResource("TileSetAtlasSource_kgm6y")
+sources/1 = SubResource("TileSetAtlasSource_x8ulu")
+sources/2 = SubResource("TileSetAtlasSource_yhqfc")
