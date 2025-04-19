@@ -9,8 +9,8 @@ func _physics_process(delta):
 func _on_hitbox_area_entered(area):
 	if area.get_parent() is Player:
 		print("hitbox entered")
-		area.get_parent().die()
-		queue_free()
+		area.get_parent().queue_free()
+		get_tree().change_scene_to_file("res://Scenes/LoseScreen.tscn")
 
 
 func _on_player_detect_area_entered(area):
