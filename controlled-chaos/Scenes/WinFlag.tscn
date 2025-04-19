@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2e4lahk1dvux"]
+
+[ext_resource type="Script" uid="uid://cjrdvhl5e1kf3" path="res://Scripts/win_flag.gd" id="1_b8gud"]
+[ext_resource type="Texture2D" uid="uid://cvyfc2kyjvld8" path="res://Assets/flag animation.png" id="2_1l866"]
+
+[sub_resource type="Animation" id="Animation_fy6f5"]
+resource_name = "flag_anim"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.42, 0.83, 1.23333, 1.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_824g3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1u1wk"]
+_data = {
+&"RESET": SubResource("Animation_824g3"),
+&"flag_anim": SubResource("Animation_fy6f5")
+}
+
+[node name="WinFlag" type="Node2D"]
+script = ExtResource("1_b8gud")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1l866")
+hframes = 5
+
+[node name="WinArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WinArea"]
+polygon = PackedVector2Array(-22, -23, -25, -19, -23, -16, -23, 25, -25, 27, -21, 29, -18, 26, -20, 25, -19, -1, -14, -3, -4, 0, 4, 0, 2, -7, 1, -15, -4, -16, -9, -16, -13, -17, -18, -16, -18, -20)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1u1wk")
+}
+
+[connection signal="area_entered" from="WinArea" to="." method="_on_win_area_area_entered"]

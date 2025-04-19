@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://by8mp7qtchvhp"]
+[gd_scene load_steps=6 format=3 uid="uid://by8mp7qtchvhp"]
 
 [ext_resource type="Script" uid="uid://cx8n7qfbsqsnd" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://by5s0vrusim41" path="res://Assets/ball.png" id="2_cvnsp"]
+[ext_resource type="AudioStream" uid="uid://8casvo5tp3gp" path="res://Sounds/SFX_Jump_22.wav" id="3_6t5aa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
 radius = 55.3635
@@ -26,3 +27,6 @@ texture = ExtResource("2_cvnsp")
 position = Vector2(-0.5, -0.5)
 scale = Vector2(1.44, 1.44)
 shape = SubResource("CircleShape2D_6t5aa")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6t5aa")

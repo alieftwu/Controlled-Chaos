@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dusnfv73fd8es"]
+[gd_scene load_steps=14 format=3 uid="uid://dusnfv73fd8es"]
 
 [ext_resource type="Texture2D" uid="uid://cqj2gru8unyfw" path="res://Assets/Sky background.png" id="1_62o08"]
 [ext_resource type="PackedScene" uid="uid://by8mp7qtchvhp" path="res://Scenes/player.tscn" id="1_myu66"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://6cjosbx551xt" path="res://Scripts/camera_player.gd" id="2_126vu"]
 [ext_resource type="PackedScene" uid="uid://cnx6qgpgmgo2n" path="res://Scenes/FallingDebris.tscn" id="4_63p1o"]
 [ext_resource type="PackedScene" uid="uid://qu0tlpt6d3gr" path="res://Scenes/RisingWater.tscn" id="7_8m5y1"]
+[ext_resource type="PackedScene" uid="uid://d2e4lahk1dvux" path="res://Scenes/WinFlag.tscn" id="8_6ghos"]
+[ext_resource type="AudioStream" uid="uid://cr81ypny4vpck" path="res://Sounds/Battle Encounter.ogg" id="9_myyae"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8m5y1"]
 texture = ExtResource("1_62o08")
@@ -963,6 +965,12 @@ player = NodePath("../Player")
 position = Vector2(470, 571)
 scale = Vector2(0.802657, 0.812716)
 
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-585.555, -702.582)
+scale = Vector2(1.24586, 1.23044)
+stream = ExtResource("9_myyae")
+autoplay = true
+
 [node name="Debris" type="Node" parent="."]
 
 [node name="FallingDebris" parent="Debris" instance=ExtResource("4_63p1o")]
@@ -1026,3 +1034,8 @@ scale = Vector2(0.479999, 0.479999)
 [node name="RisingWater" parent="Water" instance=ExtResource("7_8m5y1")]
 position = Vector2(-267, 1133)
 scale = Vector2(1.44, 2.3616)
+
+[node name="WinFlag" type="Node" parent="."]
+
+[node name="WinFlag" parent="WinFlag" instance=ExtResource("8_6ghos")]
+position = Vector2(805, -4023)

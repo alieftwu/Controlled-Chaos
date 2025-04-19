@@ -46,6 +46,7 @@ func jump():
 		if current_jump < max_jump:
 			velocity.y = jump_power
 			current_jump += 1
+			$JumpSound.play()
 	else:
 		velocity.y += gravity
 	if is_on_floor():
