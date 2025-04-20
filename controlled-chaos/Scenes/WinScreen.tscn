@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c28l2udd2rfu0"]
+[gd_scene load_steps=5 format=3 uid="uid://c28l2udd2rfu0"]
 
 [ext_resource type="Script" uid="uid://c4idj1wumgrsh" path="res://Scripts/lose_screen.gd" id="1_82r0j"]
 [ext_resource type="Texture2D" uid="uid://b2ww2n1hmvr0o" path="res://Assets/menu-background.png" id="2_fy21p"]
 [ext_resource type="Theme" uid="uid://bu6x1vk23as2v" path="res://UI/GUI.tres" id="3_douls"]
+[ext_resource type="AudioStream" uid="uid://gswps087kle4" path="res://Sounds/megabot.ogg" id="4_fy21p"]
 
 [node name="LoseScreen" type="Control"]
 layout_mode = 3
@@ -35,7 +36,7 @@ grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
-text = "Congrats!"
+text = "👑"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -48,12 +49,17 @@ layout_mode = 2
 [node name="Play Again" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_douls")
-text = "Play Again"
+text = "▶"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_douls")
-text = "Quit"
+text = "✗"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fy21p")
+volume_db = -5.777
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

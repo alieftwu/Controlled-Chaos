@@ -15,8 +15,8 @@ func _on_hitbox_area_entered(area):
 
 func _on_player_detect_area_entered(area):
 	if area.get_parent() is Player:
+		$AnimationPlayer.play("falling_anim")
 		print("player detect entered")
-		fall()
 
 func fall():
 	print("currently falling")
