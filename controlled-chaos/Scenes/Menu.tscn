@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://chyl0r3l66lq5"]
+[gd_scene load_steps=7 format=3 uid="uid://chyl0r3l66lq5"]
 
 [ext_resource type="Script" uid="uid://cym0snnosildk" path="res://Scripts/menu.gd" id="1_3kf3n"]
 [ext_resource type="Texture2D" uid="uid://b2ww2n1hmvr0o" path="res://Assets/menu-background.png" id="2_6pedr"]
 [ext_resource type="Texture2D" uid="uid://by5s0vrusim41" path="res://Assets/ball.png" id="3_ma218"]
 [ext_resource type="Theme" uid="uid://bu6x1vk23as2v" path="res://UI/GUI.tres" id="3_syfuq"]
 [ext_resource type="AudioStream" uid="uid://ccxh4crdfsfok" path="res://Sounds/joyful.ogg" id="4_s2c3o"]
+[ext_resource type="Texture2D" uid="uid://boc4yxcpxwca0" path="res://Assets/play button.png" id="5_idohh"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -50,16 +51,12 @@ offset = Vector2(50, -20)
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_syfuq")
-text = "▶"
-
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_syfuq")
-text = "✗"
+icon = ExtResource("5_idohh")
+icon_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_s2c3o")
+volume_db = -5.777
 autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

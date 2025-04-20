@@ -13,7 +13,9 @@ config_version=5
 config/name="Controlled Chaos"
 run/main_scene="uid://chyl0r3l66lq5"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/image="uid://br8asexytm362"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=5000
 
 [display]
 
