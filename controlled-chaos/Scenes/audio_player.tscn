@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://brrwv80imsyut"]
+
+[sub_resource type="GDScript" id="GDScript_k2dxr"]
+script/source = "extends AudioStreamPlayer2D
+const world_music = preload(\"res://Sounds/Battle Encounter.ogg\")
+
+func _play_music(music: AudioStream, volume = -8.0):
+	if stream == music:
+		return
+	stream = music
+	volume_db = volume
+	play()
+	
+func play_music_world():
+	_play_music(world_music)
+"
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D"]
+volume_db = -5.379
+autoplay = true
+script = SubResource("GDScript_k2dxr")

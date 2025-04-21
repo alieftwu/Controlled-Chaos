@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://qu0tlpt6d3gr"]
+
+[ext_resource type="Script" uid="uid://cj6o72crpwbmv" path="res://Scripts/rising_water.gd" id="1_ss484"]
+[ext_resource type="Texture2D" uid="uid://c38evbrwwbcls" path="res://Assets/water.png" id="2_cco66"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_431dj"]
+size = Vector2(118.382, 109.729)
+
+[node name="RisingWaterNew" type="Node2D"]
+
+[node name="KillZone" type="Area2D" parent="."]
+position = Vector2(560, 44)
+scale = Vector2(11.24, 2.36)
+script = ExtResource("1_ss484")
+
+[node name="Sprite2D" type="Sprite2D" parent="KillZone"]
+texture = ExtResource("2_cco66")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(-0.133442, 3.81354)
+scale = Vector2(1.08897, 1.08897)
+shape = SubResource("RectangleShape2D_431dj")
+debug_color = Color(0.649644, 0.52004, 0, 0.42)
+
+[connection signal="area_entered" from="KillZone" to="KillZone" method="_on_area_entered"]

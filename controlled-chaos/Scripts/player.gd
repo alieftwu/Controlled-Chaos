@@ -1,7 +1,8 @@
 extends CharacterBody2D
+class_name Player
 
 const speed = 550
-const jump_power = -2000
+const jump_power = -1500
 
 const acc = 50
 const friction = 70
@@ -22,6 +23,7 @@ func _physics_process(delta):
 		#play_animation
 	player_movement()
 	jump()
+	$Sprite2D.rotation += velocity.x * delta * 0.05
 
 func input() -> Vector2:
 	var input_dir = Vector2.ZERO
@@ -31,10 +33,10 @@ func input() -> Vector2:
 	return input_dir
 	
 func accelerate(direction):
-	velocity = velocity.move_toward(speed * direction, acc)
+	velocity = velocity.move_toward(Vector2(speed * direction.x, velocity.y), acc)
 	
 func add_friction():
-	velocity = velocity.move_toward(Vector2.ZERO, friction)
+	velocity = velocity.move_toward(Vector2(0, velocity.y), friction)
 	
 func player_movement():
 	move_and_slide()
@@ -44,6 +46,7 @@ func jump():
 		if current_jump < max_jump:
 			velocity.y = jump_power
 			current_jump += 1
+			$JumpSound.play()
 	else:
 		velocity.y += gravity
 	if is_on_floor():
